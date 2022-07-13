@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  php-apache-environment:
+    container_name: akashphp
+    image: php:8.0-apache
+    volumes:
+      - ./:/var/www/html/
+    ports:
+      - 1122:80
+      
