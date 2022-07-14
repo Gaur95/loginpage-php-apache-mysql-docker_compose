@@ -24,7 +24,7 @@ $stmt = $con->prepare("select * from logintable where user = ?");
 	if($stmt_result->num_rows > 0) {
 	  $data = $stmt_result->fetch_assoc();
 		if($data['password'] ==$password) {
-		echo "<h1>welcome</h1>";
+		include("welcompage.html");
 		} else {
      			echo "<h2>Invalid password</h2>";
 
