@@ -2,19 +2,27 @@ version: '3.3'
 services:
   php-apache-environment:
     container_name: akashphp1
-    image: php:8.0-apache
+    build: .
+    image: kk
     volumes:
       - ./:/var/www/html/
+    environment:
+        MYSQL_ROOT_PASSWORD: q1234
+        MYSQL_DATABASE: login
+        MYSQL_USER: akash
+        MYSQL_PASSWORD: q1234
     ports:
       - 1122:80
-  db:
+  datadb:
     container_name: db
     image: mysql
+    volumes:
+     - ./sql:/docker-entrypoint-initdb.d/
     restart: always
     environment:
         MYSQL_ROOT_PASSWORD: q1234
-        MYSQL_DATABASE: MY_DATABASE
-        MYSQL_USER: MYSQL_USER
-        MYSQL_PASSWORD: MYSQL_PASSWORD
+        MYSQL_DATABASE: login
+        MYSQL_USER: akash
+        MYSQL_PASSWORD: q1234
     ports:
         - "3344:3306"
