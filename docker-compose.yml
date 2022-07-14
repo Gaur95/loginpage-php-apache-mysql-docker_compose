@@ -1,10 +1,20 @@
-version: '3.8'
+version: '3.3'
 services:
   php-apache-environment:
-    container_name: akashphp
+    container_name: akashphp1
     image: php:8.0-apache
     volumes:
       - ./:/var/www/html/
     ports:
       - 1122:80
-      
+  db:
+    container_name: db
+    image: mysql
+    restart: always
+    environment:
+        MYSQL_ROOT_PASSWORD: q1234
+        MYSQL_DATABASE: MY_DATABASE
+        MYSQL_USER: MYSQL_USER
+        MYSQL_PASSWORD: MYSQL_PASSWORD
+    ports:
+        - "3344:3306"
