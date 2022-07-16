@@ -44,7 +44,7 @@ CREATE TABLE `logintable` (
 
 LOCK TABLES `logintable` WRITE;
 /*!40000 ALTER TABLE `logintable` DISABLE KEYS */;
-INSERT INTO `logintable` VALUES (1,'laadi','q123'),(2,'akash','q000'),(3,'bhanu','qwer');
+INSERT INTO `logintable` VALUES (1,'laadi','q123'),(2,'akash','q000'),(3,'bhanu','qwer'),(4,'hello','qwe');
 /*!40000 ALTER TABLE `logintable` ENABLE KEYS */;
 UNLOCK TABLES;
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
