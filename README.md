@@ -21,7 +21,7 @@ datadb:
         MYSQL_PASSWORD: q1234
 ```
 ```
-###Use logintable with that colume :-
+### Use logintable with that colume :-
 mysql> select *from logintable;
 
 +----+-------+----------+
