@@ -19,6 +19,18 @@ datadb:
         MYSQL_DATABASE: login
         MYSQL_USER: akash
         MYSQL_PASSWORD: q1234
-
 ```
+```
+###Use logintable with that colume :-
+mysql> select *from logintable;
 
++----+-------+----------+
+
+| id | user | password |
+
++----+-------+----------+
+
+| 1 | akash | q000 |
+
++----+-------+----------+
+```
