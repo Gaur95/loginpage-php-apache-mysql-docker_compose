@@ -10,7 +10,7 @@ services:
   php-enviroment:
      container_name: phpak
      image: phpkk
-     build: .
+     build: ./php/
      volumes:
          - ./php/:/var/www/html/
      environment:
