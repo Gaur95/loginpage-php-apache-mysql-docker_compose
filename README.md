@@ -21,3 +21,12 @@ datadb:
         MYSQL_PASSWORD: q1234
 
 ```
+### Use logintable with that colume :-
+mysql> select *from logintable;
++----+-------+----------+
+| id | user  | password |
++----+-------+----------+
+|  1 | laadi | q123     |
+|  2 | akash | q000     |
+|  3 | bhanu | qwer     |
++----+-------+----------+
