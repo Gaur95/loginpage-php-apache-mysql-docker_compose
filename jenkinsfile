@@ -15,7 +15,7 @@ pipeline {
         stage('Build Images') {
             steps {
                 script {
-                    sh 'docker-compose down' 
+                    sh 'docker-compose down || true' 
                     sh 'docker-compose build' 
                     
                     // docker.withRegistry('https://registry.hub.docker.com', DOCKERHUB_CREDENTIALS) {

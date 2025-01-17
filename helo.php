@@ -10,8 +10,8 @@ $pass = getenv("MYSQL_PASSWORD");
 
 $DB = getenv("MYSQL_DATABASE");
 
-$user = $_POST['user'];
-$password = $_POST['password'];
+$user = $_POST['USER'];
+$password = $_POST['PASSWORD'];
 // Create connection
 $con = new mysqli("$host", "$username","$pass","$DB");
 if($con->connect_error){
