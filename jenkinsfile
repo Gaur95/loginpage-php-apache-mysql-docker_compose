@@ -1,0 +1,55 @@
+pipeline {
+    agent any
+
+    // environment {
+    // 
+    // }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build Images') {
+            steps {
+                script {
+                    sh 'docker-compose down' 
+                    sh 'docker-compose build' 
+                    
+                    // docker.withRegistry('https://registry.hub.docker.com', DOCKERHUB_CREDENTIALS) {
+                    //     sh "docker tag php-app:latest ${DOCKERHUB_USERNAME}/${REPO_NAME}:latest"
+                    //     sh "docker push ${DOCKERHUB_USERNAME}/${REPO_NAME}:latest"
+                    // }
+                }
+            }
+        }
+
+        stage('Deploy Services') {
+            steps {
+                script {
+                    sh 'docker-compose up -d'
+                }
+            }
+        }
+        
+        stage('Post Deployment Testing') {
+            steps {
+                script {
+                    sh 'curl -I http://localhost:1122'
+                    sh 'curl -I http://localhost:3344' 
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline executed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed. Check logs for details.'
+        }
+    }
+}
